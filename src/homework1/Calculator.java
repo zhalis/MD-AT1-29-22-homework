@@ -3,9 +3,32 @@ CONFIDENTIAL AND TRADE SECRET INFORMATION. No portion of this work may be copied
 
 package homework1;
 
-import java.util.Scanner;
+import static homework1.ScannerUtils.scanEnteredNumber;
 
 public class Calculator {
+
+    /**
+     * The method calculates the result of selected operation between 2 numbers
+     *
+     * @param firstNumber  first number
+     * @param secondNumber second number
+     * @param operation    operation
+     * @return the result of mathematical operation
+     */
+    public static double calculateOperation(Double firstNumber, Double secondNumber, MathOperation operation) {
+        switch (operation) {
+            case ADD:
+                return add(firstNumber, secondNumber);
+            case DIVIDE:
+                return divide(firstNumber, secondNumber);
+            case MULTIPLY:
+                return multiply(firstNumber, secondNumber);
+            case SUBTRACT:
+                return subtract(firstNumber, secondNumber);
+            default:
+                throw new IllegalArgumentException(String.format("Operation %s is not supported", operation.name()));
+        }
+    }
 
     /**
      * The method produces addition
@@ -53,70 +76,5 @@ public class Calculator {
             divider = scanEnteredNumber();
         }
         return dividend / divider;
-    }
-
-    /**
-     * The method checks the correctness of the data and returns from
-     *
-     * @return return correct data
-     */
-    private static double scanEnteredNumber() {
-        Scanner scanner = new Scanner(System.in);
-        Double number = null;
-        while (number == null) {
-            System.out.println("enter number:");
-            try {
-                number = Double.parseDouble(scanner.next());
-            } catch (NumberFormatException exception) {
-                System.out.println("entered incorrect number! Try again");
-            }
-        }
-        return number;
-    }
-
-    /**
-     * The method calculates for the selected operation
-     *
-     * @return the result of mathematical operation
-     */
-    public static double calculateOperation() {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("enter operation +, -, *, /");
-            String operation = scanner.next();
-            if (MathOperation.ADD.getValue().equals(operation)) {
-                return add(scanEnteredNumber(), scanEnteredNumber());
-            } else if (MathOperation.SUBTRACT.getValue().equals(operation)) {
-                return subtract(scanEnteredNumber(), scanEnteredNumber());
-            } else if (MathOperation.MULTIPLY.getValue().equals(operation)) {
-                return multiply(scanEnteredNumber(), scanEnteredNumber());
-            } else if (MathOperation.DIVIDE.getValue().equals(operation)) {
-                return divide(scanEnteredNumber(), scanEnteredNumber());
-            } else {
-                System.out.println("entered incorrect operation! Try again");
-            }
-        }
-    }
-
-    /**
-     * The method includes a calculator
-     *
-     * @return true or false
-     */
-    public static boolean isTurnOffCalculator() {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("Do you want to continue? \n if YES - enter yes, if NO - enter no");
-            String offOrContinue = scanner.next();
-            if (offOrContinue.equalsIgnoreCase("yes")) {
-                return true;
-            } else if (offOrContinue.equalsIgnoreCase("no")) {
-                return false;
-            } else {
-                System.out.println("entered incorrect data! Try again");
-            }
-        }
     }
 }

@@ -1,5 +1,8 @@
 package homework1;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum MathOperation {
 
     ADD("+"),
@@ -15,5 +18,11 @@ public enum MathOperation {
 
     public String getValue() {
         return value;
+    }
+
+    public static Optional<MathOperation> valueOfOperation(String operation) {
+       return Arrays.stream(values())
+               .filter(mathOperation -> mathOperation.getValue().equals(operation))
+               .findFirst();
     }
 }
