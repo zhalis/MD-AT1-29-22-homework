@@ -6,7 +6,10 @@ package homework1;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ScannerUtils {
+public final class ScannerUtils {
+
+    private ScannerUtils() {
+    }
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
