@@ -1,9 +1,7 @@
-/* Copyright © 2020 EIS Group and/or one of its affiliates. All rights reserved. Unpublished work under U.S. copyright laws.
-CONFIDENTIAL AND TRADE SECRET INFORMATION. No portion of this work may be copied, distributed, modified, or incorporated into any other media without EIS Group prior written consent.*/
-
 package homework1;
 
 import static homework1.ScannerUtils.scanEnteredNumber;
+import static java.lang.String.format;
 
 public class Calculator {
 
@@ -15,7 +13,7 @@ public class Calculator {
      * @param operation    operation
      * @return the result of mathematical operation
      */
-    public static double calculateOperation(Double firstNumber, Double secondNumber, MathOperation operation) {
+    public static double calculateOperation(double firstNumber, double secondNumber, MathOperation operation) {
         switch (operation) {
             case ADD:
                 return add(firstNumber, secondNumber);
@@ -26,7 +24,7 @@ public class Calculator {
             case SUBTRACT:
                 return subtract(firstNumber, secondNumber);
             default:
-                throw new IllegalArgumentException(String.format("Operation %s is not supported", operation.name()));
+                throw new IllegalArgumentException(format("Operation %s is not supported", operation.name()));
         }
     }
 
