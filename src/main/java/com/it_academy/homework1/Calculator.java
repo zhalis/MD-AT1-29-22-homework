@@ -1,6 +1,6 @@
-package homework1;
+package com.it_academy.homework1;
 
-import static homework1.ScannerUtils.scanEnteredNumber;
+import static com.it_academy.homework1.ScannerUtils.scanEnteredNumber;
 import static java.lang.String.format;
 
 public class Calculator {
@@ -14,18 +14,13 @@ public class Calculator {
      * @return the result of mathematical operation
      */
     public static double calculateOperation(double firstNumber, double secondNumber, MathOperation operation) {
-        switch (operation) {
-            case ADD:
-                return add(firstNumber, secondNumber);
-            case DIVIDE:
-                return divide(firstNumber, secondNumber);
-            case MULTIPLY:
-                return multiply(firstNumber, secondNumber);
-            case SUBTRACT:
-                return subtract(firstNumber, secondNumber);
-            default:
-                throw new IllegalArgumentException(format("Operation %s is not supported", operation.name()));
-        }
+        return switch (operation) {
+            case ADD -> add(firstNumber, secondNumber);
+            case DIVIDE -> divide(firstNumber, secondNumber);
+            case MULTIPLY -> multiply(firstNumber, secondNumber);
+            case SUBTRACT -> subtract(firstNumber, secondNumber);
+            default -> throw new IllegalArgumentException(format("Operation %s is not supported", operation.name()));
+        };
     }
 
     /**

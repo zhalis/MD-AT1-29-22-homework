@@ -1,7 +1,7 @@
-package homework1;
+package com.it_academy.homework1;
 
-import static homework1.ScannerUtils.scanEnteredNumber;
-import static homework1.ScannerUtils.scanEnteredOperation;
+import static com.it_academy.homework1.ScannerUtils.scanEnteredNumber;
+import static com.it_academy.homework1.ScannerUtils.scanEnteredOperation;
 
 public class CalculatorMain {
 
