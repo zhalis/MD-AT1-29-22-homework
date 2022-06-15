@@ -1,6 +1,7 @@
 package com.it_academy.homework1;
 
-import static com.it_academy.homework1.ScannerUtils.scanEnteredNumber;
+import com.it_academy.homework1.error.DivisionByZeroException;
+
 import static java.lang.String.format;
 
 public class Calculator {
@@ -62,11 +63,11 @@ public class Calculator {
      * @param dividend dividend
      * @param divider  divider
      * @return division result
+     * @throws DivisionByZeroException – if divider == 0
      */
     private static double divide(double dividend, double divider) {
-        while (divider == 0) {
-            System.out.println("Divider cannot be 0, please enter other number:");
-            divider = scanEnteredNumber();
+        if (divider == 0) {
+            throw new DivisionByZeroException("Divider cannot be 0");
         }
         return dividend / divider;
     }

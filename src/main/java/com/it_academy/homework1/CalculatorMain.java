@@ -1,5 +1,6 @@
 package com.it_academy.homework1;
 
+import static com.it_academy.homework1.MathOperation.DIVIDE;
 import static com.it_academy.homework1.ScannerUtils.scanEnteredNumber;
 import static com.it_academy.homework1.ScannerUtils.scanEnteredOperation;
 
@@ -16,7 +17,11 @@ public class CalculatorMain {
             System.out.println("Enter second number:");
             double secondNumber = scanEnteredNumber();
 
-            System.out.println(Calculator.calculateOperation(firstNumber, secondNumber, operation));
+            while (DIVIDE.equals(operation) && secondNumber == 0) {
+                System.out.println("Division by zero is prohibited. Try entering second number again:");
+                secondNumber = scanEnteredNumber();
+            }
+            System.out.println("Result: " + Calculator.calculateOperation(firstNumber, secondNumber, operation));
         } while (ScannerUtils.isContinue());
     }
 }

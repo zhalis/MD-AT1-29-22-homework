@@ -10,7 +10,7 @@ public enum MathOperation {
     MULTIPLY("*"),
     DIVIDE("/");
 
-    private String value;
+    private final String value;
 
     MathOperation(String value) {
         this.value = value;
