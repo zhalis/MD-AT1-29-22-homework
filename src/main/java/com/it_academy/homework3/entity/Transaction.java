@@ -1,12 +1,21 @@
-package com.it_academy.homework3.dto;
+package com.it_academy.homework3.entity;
 
 public class Transaction {
     private int transactionId;
     private int accountId;
-    private int amount;
+    private double amount;
+
+    public Transaction(int accountId, float amount) {
+        this.accountId = accountId;
+        this.amount = amount;
+    }
 
     public int getTransactionId() {
         return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public int getAccountId() {
@@ -17,11 +26,11 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

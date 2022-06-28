@@ -1,17 +1,29 @@
-package com.it_academy.homework3.dto;
+package com.it_academy.homework3.entity;
 
 public class Account {
     private int accountId;
     private int userId;
-    private int balance;
+    private double balance;
     private String currency;
 
-    public Account(int balance) {
+    public Account(int userId, double balance, String currency) {
+        this.userId = userId;
         this.balance = balance;
+        this.currency = currency;
+    }
+
+    public Account(int userId, double balance) {
+        this.userId = userId;
+        this.balance = balance;
+        this.currency = "USD";
     }
 
     public int getAccountId() {
         return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public int getUserId() {
@@ -22,11 +34,11 @@ public class Account {
         this.userId = userId;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

@@ -1,4 +1,4 @@
-package com.it_academy.homework3.dto;
+package com.it_academy.homework3.entity;
 
 public class User {
     private int userId;
@@ -16,6 +16,10 @@ public class User {
 
     public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -38,8 +42,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                ", name='" + name +
+                ", address='" + address +
                 '}';
     }
 }
