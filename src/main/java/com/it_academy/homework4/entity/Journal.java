@@ -1,6 +1,7 @@
 package com.it_academy.homework4.entity;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.apache.commons.lang.StringUtils.EMPTY;
 
@@ -44,5 +45,20 @@ public class Journal {
                         .map(Article::toString)
                         .map("\n      article: "::concat)
                         .reduce(EMPTY, String::concat));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Journal journal = (Journal) o;
+        return Objects.equals(title, journal.title)
+                && Objects.equals(contacts, journal.contacts)
+                && Objects.equals(articles, journal.articles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, contacts, articles);
     }
 }

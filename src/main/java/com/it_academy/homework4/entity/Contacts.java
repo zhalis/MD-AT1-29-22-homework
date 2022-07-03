@@ -1,5 +1,7 @@
 package com.it_academy.homework4.entity;
 
+import java.util.Objects;
+
 public class Contacts {
 
     private String address;
@@ -47,5 +49,21 @@ public class Contacts {
         return ("\n      address - %s\n      tel - %s" +
                 "\n      email - %s\n      url - %s")
                 .formatted(address, tel, email, url);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contacts contacts = (Contacts) o;
+        return Objects.equals(address, contacts.address)
+                && Objects.equals(tel, contacts.tel)
+                && Objects.equals(email, contacts.email)
+                && Objects.equals(url, contacts.url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(address, tel, email, url);
     }
 }

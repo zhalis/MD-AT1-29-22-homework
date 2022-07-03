@@ -26,6 +26,13 @@ public class JournalStaxParser {
     private static final String AUTHOR = "author";
     private static final String HOTKEY = "hotkey";
 
+    /**
+     * Parse XML file in journal object
+     *
+     * @param resourceName XML file to be parsed
+     * @return Journal object
+     * @throws XMLStreamException
+     */
     public static Journal parseJournal(String resourceName) throws XMLStreamException {
         Journal journal = null;
         Contacts contacts = null;

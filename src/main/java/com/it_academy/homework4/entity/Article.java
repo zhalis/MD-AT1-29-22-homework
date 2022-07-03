@@ -1,6 +1,7 @@
 package com.it_academy.homework4.entity;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.apache.commons.lang.StringUtils.EMPTY;
 
@@ -66,5 +67,21 @@ public class Article {
                 .formatted(id, title, author, url, hotkeys.stream()
                         .map("\n            hotkey: "::concat)
                         .reduce(EMPTY, String::concat));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Article article = (Article) o;
+        return Objects.equals(id, article.id) && Objects.equals(title, article.title)
+                && Objects.equals(author, article.author)
+                && Objects.equals(url, article.url)
+                && Objects.equals(hotkeys, article.hotkeys);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, url, hotkeys);
     }
 }

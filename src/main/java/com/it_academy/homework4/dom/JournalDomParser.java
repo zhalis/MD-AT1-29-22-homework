@@ -30,6 +30,12 @@ public class JournalDomParser {
     private static final String ARTICLES = "articles";
     private static final String CONTACTS = "contacts";
 
+    /**
+     * Parse XML file in journal object
+     *
+     * @param resourceName XML file to be parsed
+     * @return Journal object
+     */
     public static Journal parseJournal(String resourceName) {
         Document document = JournalDomParser.parseXMLDocument(resourceName);
         NodeList nodeList = JournalDomParser.getNodeList(document);
